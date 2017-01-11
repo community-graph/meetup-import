@@ -6,19 +6,18 @@ Run the script and notebook server with these environment variables:
 
 .nb.sh
 ----
-cat ../nb.sh 
 export NEO4J_URL=bolt://localhost
 export NEO4J_USER=neo4j
 export NEO4J_PASSWORD=****
-export MEETUP_KEY='...'
+export MEETUP_API_KEY='...'
 
 ipython notebook 
 ----
 
 === Approach
 
-* Use Meetup APIs, load groups with topic Neo4j
-* Fetch 
+* Use Meetup APIs, load groups with topics into Neo4j
+* Fetch Members, Events with Venues and RSVPs
 * Use idempotent Cypher statement to merge Meetups, Users, Topics, 
 
 === Data Model
@@ -32,11 +31,17 @@ image::https://github.com/community-graph/documentation/raw/master/community_gra
 * store in json files and then import those
 * manage updates
 * update organizers correctly
+* use the streaming RSVP APIs
+* Update to v3 APIs
+* fix join date for members (can't find it in the v2 APIs)
 
 
 === References
 
 * https://www.meetup.com/meetup_api/docs/2/groups/
+* https://www.meetup.com/meetup_api/docs/2/events/
+* https://www.meetup.com/meetup_api/docs/2/members/
+* https://www.meetup.com/meetup_api/docs/2/rsvps/
 
 Neo4j & Meetup
 
