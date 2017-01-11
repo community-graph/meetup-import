@@ -1,0 +1,48 @@
+== Neo4j Meetup Import for Community Graph (and others)
+
+Currently uses Python and iPython Notebook, the Meetup API via requests.
+
+Run the script and notebook server with these environment variables:
+
+.nb.sh
+----
+cat ../nb.sh 
+export NEO4J_URL=bolt://localhost
+export NEO4J_USER=neo4j
+export NEO4J_PASSWORD=****
+export MEETUP_KEY='...'
+
+ipython notebook 
+----
+
+=== Approach
+
+* Use Meetup APIs, load groups with topic Neo4j
+* Fetch 
+* Use idempotent Cypher statement to merge Meetups, Users, Topics, 
+
+=== Data Model
+
+Uses the Meetup part of this data model:
+
+image::https://github.com/community-graph/documentation/raw/master/community_graph.png[]
+
+=== TODO
+
+* store in json files and then import those
+* manage updates
+* update organizers correctly
+
+
+=== References
+
+* https://www.meetup.com/meetup_api/docs/2/groups/
+
+Neo4j & Meetup
+
+* https://github.com/mneedham/neo4j-meetup
+* http://www.markhneedham.com/blog/2014/05/31/neo4jr-analysing-london-nosql-meetup-membership/
+* http://www.markhneedham.com/blog/?s=meetup
+* https://www.infoq.com/presentations/clojure-neo4j-recommendation-engine
+* https://agonzalezro.github.io/graph-your-meetupcom-group-with-neo4j-and-some-go.html
+* http://www.kennybastani.com/search/label/meetup
